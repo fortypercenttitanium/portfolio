@@ -15,7 +15,7 @@ function Pagination({
   }
 
   return (
-    <div className={className ? "mi-pagination " + className : "mi-pagination"}>
+    <div className={className ? `mi-pagination ${  className}` : "mi-pagination"}>
       <ul>
         {currentPage === 1 ? null : (
           <li>

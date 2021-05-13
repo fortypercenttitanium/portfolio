@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 function Blog(props) {
   const { id, featuredImage, title, createDay, createMonth, filesource } = props.data;
-  const getShortMonth = month => {
-    return month.slice(0, 3);
-  };
+  const getShortMonth = month => month.slice(0, 3);
   const getNospaceTitle = filesource => {
-    let tempArr = filesource.split('/');
-    let fileName = tempArr[tempArr.length - 1];
-    let getName = fileName.slice(0, -3);
+    const tempArr = filesource.split('/');
+    const fileName = tempArr[tempArr.length - 1];
+    const getName = fileName.slice(0, -3);
     return getName;
   };
   return (

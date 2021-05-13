@@ -133,10 +133,10 @@
   }
 }
 
-.size-md[class^="lni-"],
-.size-lg[class^="lni-"],
-.size-sm[class^="lni-"],
-.size-xs[class^="lni-"] {
+.size-md[class^='lni-'],
+.size-lg[class^='lni-'],
+.size-sm[class^='lni-'],
+.size-xs[class^='lni-'] {
   font-size: inherit !important;
 }
 
@@ -145,13 +145,12 @@
 }
 
 .light-mode {
-  background: rgba(#ffffff, 0.5);
   position: fixed;
   z-index: 999;
   height: 40px;
   left: auto;
-  right: 0;
-  top: 60px;
+  right: 20px;
+  top: 24px;
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -182,7 +181,7 @@
     border: 0;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 2px;
       top: 2px;

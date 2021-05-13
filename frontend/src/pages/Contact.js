@@ -51,11 +51,11 @@ function Contact() {
   const handleAlerts = () => {
     if (error && message) {
       return <div className="alert alert-danger mt-4">{message}</div>;
-    } else if (!error && message) {
+    } if (!error && message) {
       return <div className="alert alert-success mt-4">{message}</div>;
-    } else {
+    } 
       return null;
-    }
+    
   };
 
   useEffect(() => {
@@ -132,7 +132,7 @@ function Contact() {
                       cols="30"
                       rows="6"
                       value={formdata.message}
-                    ></textarea>
+                     />
                   </div>
                   <div className="mi-form-field">
                     <button className="mi-button" type="submit">
