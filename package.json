@@ -1,17 +1,37 @@
 {
-	"name": "portfolio",
+  "name": "portfolio",
 	"author": "Alex Younger",
 	"description": "Alex Younger - Web Developer Portfolio Site",
 	"version": "0.0.0",
 	"private": true,
-	"scripts": {
-		"start": "node ./backend/bin/www",
-		"dev:frontend": "cd frontend && npm start",
-		"dev:backend": "cd backend && npm run dev",
-		"install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
-		"build": "cd frontend && npm run build"
-	},
-	"devDependencies": {
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
+    "bootstrap": "^5.0.0",
+    "disqus-react": "^1.0.11",
+    "fslightbox-react": "^1.6.2",
+    "node-sass": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-feather": "^2.0.9",
+    "react-helmet": "^6.1.0",
+    "react-lineicons": "^2.2.0",
+    "react-markdown": "^6.0.2",
+    "react-masonry-component": "^6.2.1",
+    "react-on-screen": "^2.1.1",
+    "react-particles-js": "^3.4.1",
+    "react-progressive-image": "^0.6.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-slick": "^0.28.1",
+    "shave": "^2.5.10",
+    "slick-carousel": "^1.8.1",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
 		"babel-eslint": "^10.1.0",
 		"eslint": "^7.26.0",
 		"eslint-config-prettier": "^8.3.0",
@@ -20,5 +40,24 @@
 		"eslint-plugin-react": "^7.23.2",
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"prettier": "^2.3.0"
-	}
+	},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "https://localhost:5000",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
