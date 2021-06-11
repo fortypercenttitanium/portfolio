@@ -1,18 +1,18 @@
-import { Helmet } from "react-helmet";
-import axios from "axios";
-import FsLightbox from "fslightbox-react";
-import React, { useEffect, useState } from "react";
-import * as Icon from "react-feather";
-import ProgressiveImage from "react-progressive-image";
-import Slider from "react-slick";
-import Layout from "../components/Layout";
-import Sectiontitle from "../components/Sectiontitle";
-import Service from "../components/Service";
-import Testimonial from "../components/Testimonial";
+import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import FsLightbox from 'fslightbox-react';
+import React, { useEffect, useState } from 'react';
+import * as Icon from 'react-feather';
+import ProgressiveImage from 'react-progressive-image';
+import Slider from 'react-slick';
+import Layout from '../components/Layout';
+import Sectiontitle from '../components/Sectiontitle';
+import Service from '../components/Service';
+import Testimonial from '../components/Testimonial';
 
 function About() {
   const [toggler, setToggler] = useState(false);
-  const [information, setInformation] = useState("");
+  const [information, setInformation] = useState('');
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
 
@@ -45,13 +45,13 @@ function About() {
   };
 
   useEffect(() => {
-    axios.get("/api/information").then((response) => {
+    axios.get('/api/information').then((response) => {
       setInformation(response.data);
     });
-    axios.get("/api/services").then((response) => {
+    axios.get('/api/services').then((response) => {
       setServices(response.data);
     });
-    axios.get("/api/reviews").then((response) => {
+    axios.get('/api/reviews').then((response) => {
       setReviews(response.data);
     });
   }, []);
@@ -59,10 +59,10 @@ function About() {
   return (
     <Layout>
       <Helmet>
-        <title>About - Chester React Personal Portfolio Template</title>
+        <title>About Alex - Web Developer</title>
         <meta
           name="description"
-          content="Chester React Personal Portfolio Template About Page"
+          content="Alex Younger Personal Portfolio About Page"
         />
       </Helmet>
       <div className="mi-about-area mi-section mi-padding-top">
