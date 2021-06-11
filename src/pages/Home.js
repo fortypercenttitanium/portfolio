@@ -94,13 +94,12 @@ function Home({ lightMode }) {
             <div className="col-lg-10 col-12">
               <div className="mi-home-content">
                 <h1>
-                  Hey! I&apos;m{' '}
-                  <span className="color-theme">Alex Younger</span>
+                  Hey! I&apos;m <span className="color-theme">Alex</span>
                 </h1>
                 <p>
                   Fullstack web developer
                   <br />
-                  Teacher
+                  Public school teacher
                   <br />
                   Philadelphia sports enthusiast
                 </p>

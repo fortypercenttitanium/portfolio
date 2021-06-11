@@ -9,6 +9,8 @@ import Layout from '../components/Layout';
 import Sectiontitle from '../components/Sectiontitle';
 import Service from '../components/Service';
 import Testimonial from '../components/Testimonial';
+import aboutImage from '../assets/about_image.png';
+import aboutImagePlaceholder from '../assets/about-image-placeholder.png';
 
 function About() {
   const [toggler, setToggler] = useState(false);
@@ -36,12 +38,6 @@ function About() {
         },
       },
     ],
-  };
-
-  const handleToggler = (event) => {
-    setToggler({
-      toggler: !toggler,
-    });
   };
 
   useEffect(() => {
@@ -72,81 +68,45 @@ function About() {
             <div className="col-lg-6">
               <div className="mi-about-image">
                 <ProgressiveImage
-                  src={information.aboutImage}
-                  placeholder="/images/about-image-placeholder.png"
+                  src={aboutImage}
+                  placeholder={aboutImagePlaceholder}
                 >
-                  {(src) => (
-                    <img
-                      src={src}
-                      alt="aboutimage"
-                      onClick={() => handleToggler(!toggler)}
-                    />
-                  )}
+                  {(src) => <img src={src} alt="aboutimage" />}
                 </ProgressiveImage>
-                <span className="mi-about-image-icon">
-                  <Icon.ZoomIn />
-                </span>
-                <FsLightbox
-                  toggler={toggler}
-                  sources={[information.aboutImageLg]}
-                />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="mi-about-content">
                 <h3>
-                  I am <span className="color-theme">{information.name}</span>
+                  I am <span className="color-theme">Alex</span>
                 </h3>
                 <p>
-                  I am a frontend web developer. I can provide clean code and
-                  pixel perfect design. I also make website more & more
-                  interactive with web animations.
+                  I am a web developer. I build user-friendly and responsive
+                  websites to help people and businesses meet their needs.
                 </p>
                 <ul>
-                  {!information.name ? null : (
-                    <li>
-                      <b>Full Name</b> {information.name}
-                    </li>
-                  )}
-                  {!information.age ? null : (
-                    <li>
-                      <b>Age</b> {information.age} Years
-                    </li>
-                  )}
-                  {!information.phone ? null : (
-                    <li>
-                      <b>Phone</b> {information.phone}
-                    </li>
-                  )}
-                  {!information.nationality ? null : (
-                    <li>
-                      <b>Nationality</b> {information.nationality}
-                    </li>
-                  )}
-                  {!information.language ? null : (
-                    <li>
-                      <b>Languages</b> {information.language}
-                    </li>
-                  )}
-                  {!information.email ? null : (
-                    <li>
-                      <b>Email</b> {information.email}
-                    </li>
-                  )}
-                  {!information.address ? null : (
-                    <li>
-                      <b>Address</b> {information.address}
-                    </li>
-                  )}
-                  {!information.freelanceStatus ? null : (
-                    <li>
-                      <b>Freelance</b> {information.freelanceStatus}
-                    </li>
-                  )}
+                  <li>
+                    <b>Full Name</b> Alex Younger
+                  </li>
+                  <li>
+                    <b>Hometown</b> Haddon Twp, NJ
+                  </li>
+                  <li>
+                    <b>Cell</b> <a href="tel:8564304717">856-430-4717</a>
+                  </li>
+                  <li>
+                    <b>Language</b> English
+                  </li>
+                  <li>
+                    <b>Email</b>{' '}
+                    <a href="mailto:alexanderyounger@gmail.com">
+                      alexanderyounger@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <b>Status</b> Available for hire
+                  </li>
                 </ul>
-                <a href={information.cvfile} className="mi-button">
-                  Download CV
-                </a>
               </div>
             </div>
           </div>
@@ -169,7 +129,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="mi-review-area mi-section mi-padding-top mi-padding-bottom">
+      {/* <div className="mi-review-area mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
           <Sectiontitle title="Reviews" />
           <div className="row justify-content-center">
@@ -182,7 +142,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 }
