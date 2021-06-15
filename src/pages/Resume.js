@@ -1,12 +1,12 @@
-import { Helmet } from "react-helmet";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import TrackVisibility from "react-on-screen";
-import Sectiontitle from "../components/Sectiontitle";
-import Smalltitle from "../components/Smalltitle";
-import Layout from "../components/Layout";
-import Progress from "../components/Progress";
-import Resume from "../components/Resume";
+import { Helmet } from 'react-helmet';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import TrackVisibility from 'react-on-screen';
+import Sectiontitle from '../components/Sectiontitle';
+import Smalltitle from '../components/Smalltitle';
+import Layout from '../components/Layout';
+import Progress from '../components/Progress';
+import Resume from '../components/Resume';
 
 function Resumes() {
   const [skills, setSkills] = useState([]);
@@ -14,10 +14,10 @@ function Resumes() {
   const [educationExperience, setEducationExperience] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/skills").then((response) => {
+    axios.get('/api/skills').then((response) => {
       setSkills(response.data);
     });
-    axios.get("/api/experience").then((response) => {
+    axios.get('/api/experience').then((response) => {
       setWorkingExperience(response.data.workingExperience);
       setEducationExperience(response.data.educationExperience);
     });
@@ -26,10 +26,10 @@ function Resumes() {
   return (
     <Layout>
       <Helmet>
-        <title>Resume - Chester React Personal Portfolio Template</title>
+        <title>Resume</title>
         <meta
           name="description"
-          content="Chester React Personal Portfolio Template Resume Page"
+          content="Alex Younger Personal Portfolio Resume Page"
         />
       </Helmet>
       <div className="mi-skills-area mi-section mi-padding-top">

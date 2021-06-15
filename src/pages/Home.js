@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import Socialicons from '../components/Socialicons';
 
 function Home({ lightMode }) {
-  const [information, setInformation] = useState('');
   const paramConfig = {
     particles: {
       number: {
