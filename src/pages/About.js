@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
 import FsLightbox from 'fslightbox-react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as Icon from 'react-feather';
 import ProgressiveImage from 'react-progressive-image';
 import Slider from 'react-slick';
@@ -13,11 +12,6 @@ import aboutImage from '../assets/about_image.png';
 import aboutImagePlaceholder from '../assets/about-image-placeholder.png';
 
 function About() {
-  const [toggler, setToggler] = useState(false);
-  const [information, setInformation] = useState('');
-  const [services, setServices] = useState([]);
-  const [reviews, setReviews] = useState([]);
-
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -40,17 +34,26 @@ function About() {
     ],
   };
 
-  useEffect(() => {
-    axios.get('/api/information').then((response) => {
-      setInformation(response.data);
-    });
-    axios.get('/api/services').then((response) => {
-      setServices(response.data);
-    });
-    axios.get('/api/reviews').then((response) => {
-      setReviews(response.data);
-    });
-  }, []);
+  const services = [
+    {
+      title: 'Web Development',
+      icon: 'code',
+      details:
+        'Is your current website up to modern standards? Is it accessible to everyone and responsive on all devices? Does it meet all of your business or personal needs? If not, I can help!',
+    },
+    {
+      title: 'Mobile/Desktop Apps',
+      icon: 'laptop-phone',
+      details:
+        'I make fast, powerful, and beautiful native applications for devices and computers that interface with other hardware, or for when you just need a bit more muscle under the hood.',
+    },
+    {
+      title: 'Small Business Solutions',
+      icon: 'graph',
+      details:
+        'Got a tech problem, but have no idea how to solve it? Let me help out. I can build a solution that fits your needs for a fraction of the price the big software companies would charge.',
+    },
+  ];
 
   return (
     <Layout>
@@ -112,7 +115,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="mi-service-area mi-section mi-padding-top">
+      <div className="mi-service-area mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
           <Sectiontitle title="Services" />
           <div className="mi-service-wrapper">
