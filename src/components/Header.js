@@ -52,12 +52,12 @@ function Header() {
           </li>
           <li>
             <NavLink to="/portfolios">
-              <span>Portfolios</span>
+              <span>Portfolio</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/blogs">
-              <span>Blogs</span>
+            <NavLink to="/blog">
+              <span>Blog</span>
             </NavLink>
           </li>
           <li>

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import Blog from './Blog';
 
-function BlogsView({blogs}) {
+function BlogView({ blogs }) {
   return (
     <div className="row mt-30-reverse">
-      {blogs.map(blog => (
+      {blogs.map((blog) => (
         <div className="col-lg-6 col-md-6 col-12 mt-30" key={blog.id}>
           <Blog data={blog} />
         </div>
@@ -13,4 +13,4 @@ function BlogsView({blogs}) {
   );
 }
 
-export default BlogsView;
+export default BlogView;
