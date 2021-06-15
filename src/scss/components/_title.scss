@@ -2,9 +2,8 @@
  * Title 
  */
 
-
 .mi-sectiontitle {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 1;
 
@@ -31,7 +30,7 @@
     text-transform: uppercase;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: auto;
@@ -43,7 +42,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: auto;
@@ -106,8 +105,8 @@
     color: $color-body;
   }
 
-  @media #{$layout-mobile-lg}{
-    &-icon{
+  @media #{$layout-mobile-lg} {
+    &-icon {
       font-size: 1.51rem;
       line-height: 2.13rem;
     }

@@ -1,27 +1,59 @@
 import { Helmet } from 'react-helmet';
 import React, { useState, useEffect } from 'react';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode } from 'react-icons/fa';
+import { IoLogoElectron, IoLogoFirebase } from 'react-icons/io5';
+import { DiMongodb } from 'react-icons/di';
 import axios from 'axios';
-import TrackVisibility from 'react-on-screen';
 import Sectiontitle from '../components/Sectiontitle';
 import Smalltitle from '../components/Smalltitle';
 import Layout from '../components/Layout';
-import Progress from '../components/Progress';
 import Resume from '../components/Resume';
 
 function Resumes() {
-  const [skills, setSkills] = useState([]);
   const [workingExperience, setWorkingExperience] = useState([]);
   const [educationExperience, setEducationExperience] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/skills').then((response) => {
-      setSkills(response.data);
-    });
     axios.get('/api/experience').then((response) => {
       setWorkingExperience(response.data.workingExperience);
       setEducationExperience(response.data.educationExperience);
     });
   }, []);
+
+  const skills = [
+    {
+      title: 'HTML5',
+      icon: FaHtml5,
+    },
+    {
+      title: 'CSS3',
+      icon: FaCss3Alt,
+    },
+    {
+      title: 'Javascript',
+      icon: FaJs,
+    },
+    {
+      title: 'React',
+      icon: FaReact,
+    },
+    {
+      title: 'NodeJS',
+      icon: FaNode,
+    },
+    {
+      title: 'Electron',
+      icon: IoLogoElectron,
+    },
+    {
+      title: 'MongoDB',
+      icon: DiMongodb,
+    },
+    {
+      title: 'Firebase',
+      icon: IoLogoFirebase,
+    },
+  ];
 
   return (
     <Layout>
@@ -36,21 +68,24 @@ function Resumes() {
         <div className="container">
           <Sectiontitle title="My Skills" />
           <div className="mi-skills">
-            <div className="row mt-30-reverse">
+            <div className="row justify-content-center mt-30">
               {skills.map((skill) => (
-                <TrackVisibility
-                  once
-                  className="col-lg-6 mt-30"
+                <div
                   key={skill.title}
+                  className="col-6 col-md-4 col-lg-3 d-flex"
                 >
-                  <Progress title={skill.title} percentage={skill.value} />
-                </TrackVisibility>
+                  <skill.icon
+                    className="color-theme mx-auto my-5"
+                    style={{ height: '100px', width: '100px' }}
+                    title={skill.title}
+                  />
+                </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-      <div className="mi-resume-area mi-section mi-padding-top mi-padding-bottom">
+      <div className="mi-resume-area mi-section mi-padding-bottom">
         <div className="container">
           <Sectiontitle title="Resume" />
           <Smalltitle title="Working Experience" icon="briefcase" />
