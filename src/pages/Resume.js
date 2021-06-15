@@ -1,60 +1,80 @@
 import { Helmet } from 'react-helmet';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode } from 'react-icons/fa';
 import { IoLogoElectron, IoLogoFirebase } from 'react-icons/io5';
 import { DiMongodb } from 'react-icons/di';
-import axios from 'axios';
 import Sectiontitle from '../components/Sectiontitle';
 import Smalltitle from '../components/Smalltitle';
 import Layout from '../components/Layout';
-import Resume from '../components/Resume';
+import ResumeSection from '../components/ResumeSection';
 
-function Resumes() {
-  const [workingExperience, setWorkingExperience] = useState([]);
-  const [educationExperience, setEducationExperience] = useState([]);
+const skills = [
+  {
+    title: 'HTML5',
+    icon: FaHtml5,
+  },
+  {
+    title: 'CSS3',
+    icon: FaCss3Alt,
+  },
+  {
+    title: 'Javascript',
+    icon: FaJs,
+  },
+  {
+    title: 'React',
+    icon: FaReact,
+  },
+  {
+    title: 'NodeJS',
+    icon: FaNode,
+  },
+  {
+    title: 'Electron',
+    icon: IoLogoElectron,
+  },
+  {
+    title: 'MongoDB',
+    icon: DiMongodb,
+  },
+  {
+    title: 'Firebase',
+    icon: IoLogoFirebase,
+  },
+];
 
-  useEffect(() => {
-    axios.get('/api/experience').then((response) => {
-      setWorkingExperience(response.data.workingExperience);
-      setEducationExperience(response.data.educationExperience);
-    });
-  }, []);
+const workingExperience = [
+  {
+    id: 1,
+    year: '2020 - Present',
+    position: 'Fulstack Engineer/Maintainer',
+    company: 'Cards of Carousal',
+    companyURL: 'https://www.cardsofcarousal.com',
+    companyGithubURL: 'https://github.com/I3uckwheat/cards-of-carousal',
+    details: [
+      'Leverage modern React to build user interface and state management system',
+      'Develop NodeJS/Express server modules to handle routing and API requests',
+      'Utilize web socket API for player-server communication',
+      'Write tests for all components to ensure 100% coverage',
+      'Collaborate with peers through pair programming and brainstorm sessions',
+      'Work in an agile environment meeting sprint deadlines, checking in at standups, and sharing progress at scrums',
+      'Review pull requests from other contributers',
+    ],
+  },
+  {
+    id: 2,
+    year: '2020 - Present',
+    position: 'Web Developer',
+    company: 'Freelance',
+    details: [
+      'Develop web and application solutions for various client needs',
+      'Set up and maintain hosting for client sites',
+      'Offer consultation for better user experience, web presence, and SEO',
+    ],
+  },
+];
 
-  const skills = [
-    {
-      title: 'HTML5',
-      icon: FaHtml5,
-    },
-    {
-      title: 'CSS3',
-      icon: FaCss3Alt,
-    },
-    {
-      title: 'Javascript',
-      icon: FaJs,
-    },
-    {
-      title: 'React',
-      icon: FaReact,
-    },
-    {
-      title: 'NodeJS',
-      icon: FaNode,
-    },
-    {
-      title: 'Electron',
-      icon: IoLogoElectron,
-    },
-    {
-      title: 'MongoDB',
-      icon: DiMongodb,
-    },
-    {
-      title: 'Firebase',
-      icon: IoLogoFirebase,
-    },
-  ];
-
+function Resume() {
   return (
     <Layout>
       <Helmet>
@@ -90,21 +110,21 @@ function Resumes() {
           <Sectiontitle title="Resume" />
           <Smalltitle title="Working Experience" icon="briefcase" />
           <div className="mi-resume-wrapper">
-            {workingExperience.map((workingExp) => (
-              <Resume key={workingExp.id} resumeData={workingExp} />
+            {workingExperience.map((experience) => (
+              <ResumeSection key={experience.id} experience={experience} />
             ))}
           </div>
-          <div className="mt-30" />
+          {/* <div className="mt-30" />
           <Smalltitle title="Educational Qualifications" icon="book" />
           <div className="mi-resume-wrapper">
             {educationExperience.map((educatonExp) => (
               <Resume key={educatonExp.id} resumeData={educatonExp} />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
   );
 }
 
-export default Resumes;
+export default Resume;
