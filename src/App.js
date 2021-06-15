@@ -8,8 +8,8 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Notfound from './pages/Notfound';
-import Portfolios from './pages/Portfolios';
-import Resumes from './pages/Resumes';
+import Portfolio from './pages/Portfolio';
+import Resume from './pages/Resume';
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -51,8 +51,8 @@ function App() {
           <Home lightMode={lightMode} />
         </Route>
         <Route path="/about" component={About} />
-        <Route path="/resume" component={Resumes} />
-        <Route path="/portfolios" component={Portfolios} />
+        <Route path="/resume" component={Resume} />
+        <Route path="/portfolio" component={Portfolio} />
         <Route path="/blogs" exact component={Blogs} />
         <Route path="/blogs/blog-details/:id/:title" component={BlogDetails} />
         <Route path="/contact" component={Contact} />
