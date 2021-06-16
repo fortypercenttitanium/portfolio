@@ -1,13 +1,9 @@
 import { Helmet } from 'react-helmet';
-import FsLightbox from 'fslightbox-react';
 import React from 'react';
-import * as Icon from 'react-feather';
 import ProgressiveImage from 'react-progressive-image';
-import Slider from 'react-slick';
 import Layout from '../components/Layout';
 import Sectiontitle from '../components/Sectiontitle';
 import Service from '../components/Service';
-import Testimonial from '../components/Testimonial';
 import aboutImage from '../assets/about_image.png';
 import aboutImagePlaceholder from '../assets/about-image-placeholder.png';
 

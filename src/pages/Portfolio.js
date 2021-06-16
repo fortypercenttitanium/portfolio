@@ -4,7 +4,7 @@ import axios from 'axios';
 import Sectiontitle from '../components/Sectiontitle';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
-import PortfoliosView from '../components/PortfoliosView';
+import PortfolioView from '../components/PortfolioView';
 
 function Portfolio() {
   const [portfolios, setPortfoios] = useState([]);
@@ -36,16 +36,16 @@ function Portfolio() {
   return (
     <Layout>
       <Helmet>
-        <title>Portfolios - Chester React Personal Portfolio Template</title>
+        <title>Portfolio</title>
         <meta
           name="description"
-          content="Chester React Personal Portfolio Template Portfolios Page"
+          content="Alex Younger Personal Portfolio About Page"
         />
       </Helmet>
       <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
           <Sectiontitle title="Portfolios" />
-          {<PortfoliosView portfolios={currentPortfolios} />}
+          {<PortfolioView portfolios={currentPortfolios} />}
           {!(portfolios.length > portfoliosPerPage) ? null : (
             <Pagination
               className="mt-50"
