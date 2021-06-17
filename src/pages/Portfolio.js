@@ -7,7 +7,7 @@ import Pagination from '../components/Pagination';
 import PortfolioView from '../components/PortfolioView';
 
 function Portfolio() {
-  const [portfolios, setPortfoios] = useState([]);
+  const [portfolio, setPortfolio] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [portfoliosPerPage] = useState(9);
 
@@ -15,17 +15,17 @@ function Portfolio() {
     let mounted = true;
     axios.get('/api/portfolios').then((response) => {
       if (mounted) {
-        setPortfoios(response.data);
+        setPortfolio(response.data);
       }
     });
     return () => (mounted = false);
-  }, [portfolios]);
+  }, [portfolio]);
 
-  const indexOfLastPortfolios = currentPage * portfoliosPerPage;
-  const indexOfFirstPortfolios = indexOfLastPortfolios - portfoliosPerPage;
-  const currentPortfolios = portfolios.slice(
-    indexOfFirstPortfolios,
-    indexOfLastPortfolios,
+  const indexOfLastPortfolio = currentPage * portfoliosPerPage;
+  const indexOfFirstPortfolio = indexOfLastPortfolio - portfoliosPerPage;
+  const currentPortfolio = portfolio.slice(
+    indexOfFirstPortfolio,
+    indexOfLastPortfolio,
   );
 
   const paginate = (e, pageNumber) => {
@@ -39,18 +39,18 @@ function Portfolio() {
         <title>Portfolio</title>
         <meta
           name="description"
-          content="Alex Younger Personal Portfolio About Page"
+          content="Alex Younger Personal Portfolio Page"
         />
       </Helmet>
       <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
-          <Sectiontitle title="Portfolios" />
-          {<PortfolioView portfolios={currentPortfolios} />}
-          {!(portfolios.length > portfoliosPerPage) ? null : (
+          <Sectiontitle title="Portfolio" />
+          {<PortfolioView portfolio={currentPortfolio} />}
+          {!(portfolio.length > portfoliosPerPage) ? null : (
             <Pagination
               className="mt-50"
               itemsPerPage={portfoliosPerPage}
-              totalItems={portfolios.length}
+              totalItems={portfolio.length}
               paginate={paginate}
               currentPage={currentPage}
             />
