@@ -1,12 +1,11 @@
 import { Helmet } from 'react-helmet';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import * as Icon from 'react-feather';
 import Socialicons from '../components/Socialicons';
 import Sectiontitle from '../components/Sectiontitle';
 import Layout from '../components/Layout';
 
-const phoneNumber = '856-430-4717';
+const phoneNumber = '856-471-7881';
 const emailAddress = 'alex@ayweb.dev';
 
 function Contact() {
