@@ -80,7 +80,7 @@ function About() {
                   I am <span className="color-theme">Alex</span>
                 </h3>
                 <p>
-                  I am a web developer. I build user-friendly and responsive
+                  I&apos;m a web developer. I build user-friendly and responsive
                   websites to help people and businesses meet their needs.
                 </p>
                 <ul>
@@ -91,16 +91,20 @@ function About() {
                     <b>Hometown</b> Haddon Twp, NJ
                   </li>
                   <li>
-                    <b>Cell</b> <a href="tel:8564304717">856-430-4717</a>
-                  </li>
-                  <li>
                     <b>Language</b> English
                   </li>
                   <li>
+                    <b>Ice cream</b> B&J Half-Baked
+                  </li>
+                  <li>
+                    <b>Hobbies</b> Camping, Baseball
+                  </li>
+                  <li>
+                    <b>Cell</b> <a href="tel:8564717881">856-471-7881</a>
+                  </li>
+                  <li>
                     <b>Email</b>{' '}
-                    <a href="mailto:alexanderyounger@gmail.com">
-                      alexanderyounger@gmail.com
-                    </a>
+                    <a href="mailto:alex@ayweb.dev">alex@ayweb.dev</a>
                   </li>
                   <li>
                     <b>Status</b> Available for hire
