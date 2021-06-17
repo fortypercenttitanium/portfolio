@@ -1,78 +1,73 @@
-import { Helmet } from "react-helmet";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import * as Icon from "react-feather";
-import Sectiontitle from "../components/Sectiontitle";
-import Layout from "../components/Layout";
+import { Helmet } from 'react-helmet';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import * as Icon from 'react-feather';
+import Socialicons from '../components/Socialicons';
+import Sectiontitle from '../components/Sectiontitle';
+import Layout from '../components/Layout';
+
+const phoneNumber = '856-430-4717';
+const emailAddress = 'alex@ayweb.dev';
 
 function Contact() {
-  const [phoneNumbers, setPhoneNumbers] = useState([]);
-  const [emailAddress, setEmailAddress] = useState([]);
   const [address, setAddress] = useState([]);
   const [formdata, setFormdata] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
   const [error, setError] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const submitHandler = (event) => {
     event.preventDefault();
     if (!formdata.name) {
       setError(true);
-      setMessage("Name is required");
-    } else if (!formdata.email) {
+      setMessage('Name is required');
+    } else if (
+      !/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        formdata.email,
+      )
+    ) {
       setError(true);
-      setMessage("Email is required");
+      setMessage('Valid email required');
     } else if (!formdata.subject) {
       setError(true);
-      setMessage("Subject is required");
+      setMessage('Subject is required');
     } else if (!formdata.message) {
       setError(true);
-      setMessage("Message is required");
+      setMessage('Message is required');
     } else {
       setError(false);
-      setMessage("You message has been sent!!!");
+      setMessage('You message has been sent!!!');
     }
   };
+
   const handleChange = (event) => {
     setFormdata({
       ...formdata,
       [event.currentTarget.name]: event.currentTarget.value,
     });
   };
-  const numberFormatter = (number) => {
-    const phnNumber = number;
-    return phnNumber;
-  };
 
   const handleAlerts = () => {
     if (error && message) {
       return <div className="alert alert-danger mt-4">{message}</div>;
-    } if (!error && message) {
+    }
+    if (!error && message) {
       return <div className="alert alert-success mt-4">{message}</div>;
-    } 
-      return null;
-    
+    }
+    return null;
   };
-
-  useEffect(() => {
-    axios.get("/api/contactinfo").then((response) => {
-      setPhoneNumbers(response.data.phoneNumbers);
-      setEmailAddress(response.data.emailAddress);
-      setAddress(response.data.address);
-    });
-  }, []);
 
   return (
     <Layout>
       <Helmet>
-        <title>Contact - Chester React Personal Portfolio Template</title>
+        <title>Contact</title>
         <meta
           name="description"
-          content="Chester React Personal Portfolio Template Contact Page"
+          content="Alex Younger Personal Portfolio Contact Page"
         />
       </Helmet>
       <div className="mi-contact-area mi-section mi-padding-top mi-padding-bottom">
@@ -103,16 +98,14 @@ function Contact() {
                     </label>
                     <input
                       onChange={handleChange}
-                      type="text"
+                      type="email"
                       name="email"
                       id="contact-form-email"
                       value={formdata.email}
                     />
                   </div>
                   <div className="mi-form-field">
-                    <label htmlFor="contact-form-subject">
-                      Enter your subject*
-                    </label>
+                    <label htmlFor="contact-form-subject">Subject*</label>
                     <input
                       onChange={handleChange}
                       type="text"
@@ -122,9 +115,7 @@ function Contact() {
                     />
                   </div>
                   <div className="mi-form-field">
-                    <label htmlFor="contact-form-message">
-                      Enter your Message*
-                    </label>
+                    <label htmlFor="contact-form-message">Message*</label>
                     <textarea
                       onChange={handleChange}
                       name="message"
@@ -132,7 +123,7 @@ function Contact() {
                       cols="30"
                       rows="6"
                       value={formdata.message}
-                     />
+                    />
                   </div>
                   <div className="mi-form-field">
                     <button className="mi-button" type="submit">
@@ -145,49 +136,37 @@ function Contact() {
             </div>
             <div className="col-lg-6">
               <div className="mi-contact-info">
-                {!phoneNumbers ? null : (
-                  <div className="mi-contact-infoblock">
-                    <span className="mi-contact-infoblock-icon">
-                      <Icon.Phone />
-                    </span>
-                    <div className="mi-contact-infoblock-content">
-                      <h6>Phone</h6>
-                      {phoneNumbers.map((phoneNumber) => (
-                        <p key={phoneNumber}>
-                          <a href={numberFormatter(phoneNumber)}>
-                            {phoneNumber}
-                          </a>
-                        </p>
-                      ))}
-                    </div>
+                <div className="mi-contact-infoblock">
+                  <span className="mi-contact-infoblock-icon">
+                    <Icon.Phone />
+                  </span>
+                  <div className="mi-contact-infoblock-content">
+                    <h6>Phone</h6>
+                    <p>
+                      <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
+                    </p>
                   </div>
-                )}
-                {!emailAddress ? null : (
-                  <div className="mi-contact-infoblock">
-                    <span className="mi-contact-infoblock-icon">
-                      <Icon.Mail />
-                    </span>
-                    <div className="mi-contact-infoblock-content">
-                      <h6>Email</h6>
-                      {emailAddress.map((email) => (
-                        <p key={email}>
-                          <a href={`mailto:${email}`}>{email}</a>
-                        </p>
-                      ))}
-                    </div>
+                </div>
+                <div className="mi-contact-infoblock">
+                  <span className="mi-contact-infoblock-icon">
+                    <Icon.Mail />
+                  </span>
+                  <div className="mi-contact-infoblock-content">
+                    <h6>Email</h6>
+                    <p key={emailAddress}>
+                      <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
+                    </p>
                   </div>
-                )}
-                {!phoneNumbers ? null : (
-                  <div className="mi-contact-infoblock">
-                    <span className="mi-contact-infoblock-icon">
-                      <Icon.MapPin />
-                    </span>
-                    <div className="mi-contact-infoblock-content">
-                      <h6>Address</h6>
-                      <p>{address}</p>
-                    </div>
+                </div>
+                <div className="mi-contact-infoblock">
+                  <span className="mi-contact-infoblock-icon">
+                    <Icon.ThumbsUp />
+                  </span>
+                  <div className="mi-contact-infoblock-content">
+                    <h6>Social Media</h6>
+                    <Socialicons bordered />
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
