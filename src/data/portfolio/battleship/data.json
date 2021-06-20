@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "title": "Battleship game",
+  "subtitle": "A web version of the classic Hasbro game. Features smart AI.",
+  "imageUrl": "/images/portfolio/battleship_img.png",
+  "largeImageUrl": [
+    "/images/portfolio/battleship_img_lg.png",
+    "/images/portfolio/battleship_img_lg2.png"
+  ],
+  "liveUrl": "https://benders-battleship.netlify.app/",
+  "gitHubUrl": "https://github.com/fortypercenttitanium/battleship"
+}

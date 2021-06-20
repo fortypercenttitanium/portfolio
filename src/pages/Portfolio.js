@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Sectiontitle from '../components/Sectiontitle';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import PortfolioView from '../components/PortfolioView';
+import portfolioData from '../data/portfolioData.json';
 
 function Portfolio() {
   const [portfolio, setPortfolio] = useState([]);
@@ -12,14 +12,8 @@ function Portfolio() {
   const [portfoliosPerPage] = useState(9);
 
   useEffect(() => {
-    let mounted = true;
-    axios.get('/api/portfolios').then((response) => {
-      if (mounted) {
-        setPortfolio(response.data);
-      }
-    });
-    return () => (mounted = false);
-  }, [portfolio]);
+    setPortfolio(portfolioData.sort((a, b) => a.id - b.id));
+  }, []);
 
   const indexOfLastPortfolio = currentPage * portfoliosPerPage;
   const indexOfFirstPortfolio = indexOfLastPortfolio - portfoliosPerPage;
