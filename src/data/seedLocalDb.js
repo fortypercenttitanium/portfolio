@@ -6,6 +6,38 @@ require('dotenv').config();
 require('./check-env.js');
 
 function seedBlogs() {
+  function createDataFile(data) {
+    // send images to public folder
+    const imageFiles = fs.readdirSync(data.homeDirectory).filter((file) => {
+      const split = file.split('.');
+      return /jpg|png|jpeg|gif/.test(split[split.length - 1]);
+    });
+
+    imageFiles.forEach((file) => {
+      if (fs.existsSync(path.join(process.env.BLOG_IMAGE_FOLDER, file)))
+        throw new Error('Image duplicate found: ', file);
+
+      let newFileName;
+
+      if (file === 'main_image.jpg') {
+        newFileName = data.slug + '.jpg';
+        data.mainImageUrl = newFileName;
+      }
+
+      fs.copyFileSync(
+        path.join(data.homeDirectory, file),
+        path.join(
+          process.env.BLOG_IMAGE_FOLDER,
+          newFileName ? newFileName : file,
+        ),
+      );
+    });
+
+    fs.writeFileSync(
+      path.join(data.homeDirectory, 'data.json'),
+      JSON.stringify(data),
+    );
+  }
   try {
     console.log('Seeding blogs...');
     const blogs = fs
@@ -38,7 +70,7 @@ function seedBlogs() {
       const data = {
         title,
         author: 'Alex Younger',
-        date: Date.now(),
+        date: new Date(),
         slug: slugify(title, { lower: true }),
         id,
         markdown,
@@ -46,32 +78,43 @@ function seedBlogs() {
         lastEdited: '',
       };
 
-      // send images to public folder
-      const imageFiles = fs.readdirSync(blog).filter((file) => {
-        const split = file.split('.');
-        return /jpg|png|jpeg|gif/.test(split[split.length - 1]);
-      });
-      imageFiles.forEach((file) => {
-        if (fs.existsSync(path.join(process.env.BLOG_IMAGE_FOLDER, file)))
-          throw new Error('Image duplicate found: ', file);
+      createDataFile(data);
+    });
 
-        let newFileName;
+    const editedBlogs = blogs.filter((blog) => {
+      const data = JSON.parse(fs.readFileSync(path.join(blog, 'data.json')));
 
-        if (file === 'main_image.jpg') {
-          newFileName = data.slug + '.jpg';
-          data.mainImageUrl = newFileName;
-        }
+      // Check if title or markdown have been changed
+      return (
+        !fs.existsSync(path.join(blog, `${data.title}.md`)) ||
+        data.markdown !==
+          fs.readFileSync(path.join(blog, `${data.title}.md`)).toString()
+      );
+    });
 
-        fs.copyFileSync(
-          path.join(blog, file),
-          path.join(
-            process.env.BLOG_IMAGE_FOLDER,
-            newFileName ? newFileName : file,
-          ),
-        );
-      });
+    if (editedBlogs.length)
+      console.log('Edited blogs found, rehydrating their data...');
 
-      fs.writeFileSync(path.join(blog, 'data.json'), JSON.stringify(data));
+    editedBlogs.forEach((blog) => {
+      const data = JSON.parse(fs.readFileSync(path.join(blog, 'data.json')));
+
+      // edit titles
+      if (!fs.existsSync(path.join(blog, `${data.title}.md`))) {
+        const newBlogFile = fs
+          .readdirSync(blog)
+          .find((file) => file.slice(file.length - 3) === '.md');
+
+        data.title = newBlogFile.split('.')[0];
+      }
+
+      // rehydrate markdown
+      data.markdown = fs
+        .readFileSync(path.join(blog, `${data.title}.md`))
+        .toString();
+
+      data.lastEdited = new Date();
+
+      createDataFile(data);
     });
 
     const blogData = blogs.map((blog) => {
@@ -81,17 +124,6 @@ function seedBlogs() {
 
       return JSON.parse(fs.readFileSync(dataPath));
     });
-
-    const editedBlogs = blogData.filter((data) => {
-      return (
-        data.markdown !==
-        fs
-          .readFileSync(path.join(data.homeDirectory, `${data.title}.md`))
-          .toString()
-      );
-    });
-
-    console.log(editedBlogs);
 
     fs.writeFileSync(
       path.resolve(__dirname, 'blogData.json'),
