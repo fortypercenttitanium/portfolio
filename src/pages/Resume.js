@@ -47,7 +47,7 @@ const workingExperience = [
   {
     id: 1,
     year: '2020 - Present',
-    position: 'Fulstack Engineer/Maintainer',
+    position: 'Fullstack Engineer/Maintainer',
     company: 'Cards of Carousal',
     companyURL: 'https://www.cardsofcarousal.com',
     companyGithubURL: 'https://github.com/I3uckwheat/cards-of-carousal',
