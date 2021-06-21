@@ -53,7 +53,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "seed": "node ./src/seedLocalDb.js"
+    "seed": "node ./src/data/seedLocalDb.js"
   },
   "browserslist": {
     "production": [
