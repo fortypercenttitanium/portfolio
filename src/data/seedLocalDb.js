@@ -42,6 +42,8 @@ function seedBlogs() {
         slug: slugify(title, { lower: true }),
         id,
         markdown,
+        homeDirectory: blog,
+        lastEdited: '',
       };
 
       // send images to public folder
@@ -79,6 +81,17 @@ function seedBlogs() {
 
       return JSON.parse(fs.readFileSync(dataPath));
     });
+
+    const editedBlogs = blogData.filter((data) => {
+      return (
+        data.markdown !==
+        fs
+          .readFileSync(path.join(data.homeDirectory, `${data.title}.md`))
+          .toString()
+      );
+    });
+
+    console.log(editedBlogs);
 
     fs.writeFileSync(
       path.resolve(__dirname, 'blogData.json'),
