@@ -1,22 +1,14 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import LineIcon from 'react-lineicons';
 import { Link, NavLink } from 'react-router-dom';
 import brandImage from '../assets/brand_image.png';
 
 function Header() {
-  const [information, setInformation] = useState('');
   const [navigationToggler, setNavigationToggler] = useState(false);
 
   const handleNavigationToggler = () => {
     setNavigationToggler(!navigationToggler);
   };
-
-  useEffect(() => {
-    axios.get('/api/information').then((response) => {
-      setInformation(response.data);
-    });
-  }, []);
 
   return (
     <nav className={navigationToggler ? 'mi-header is-visible' : 'mi-header'}>
