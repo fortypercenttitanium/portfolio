@@ -47,7 +47,7 @@ function seedBlogs() {
       // send images to public folder
       const imageFiles = fs.readdirSync(blog).filter((file) => {
         const split = file.split('.');
-        return /jpg|png|jpeg/.test(split[split.length - 1]);
+        return /jpg|png|jpeg|gif/.test(split[split.length - 1]);
       });
       imageFiles.forEach((file) => {
         if (fs.existsSync(path.join(process.env.BLOG_IMAGE_FOLDER, file)))
@@ -109,6 +109,10 @@ function seedPortfolio() {
         const split = file.split('.');
         return /jpg|png|jpeg/.test(split[split.length - 1]);
       });
+
+      if (imageFiles.length < 2)
+        throw new Error(`Not enough images found in directory ${folder}`);
+
       imageFiles.forEach((file) => {
         if (
           !fs.existsSync(path.join(process.env.PORTFOLIO_IMAGE_FOLDER, file))
