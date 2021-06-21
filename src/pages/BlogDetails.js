@@ -1,50 +1,50 @@
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
-import Disqus from 'disqus-react';
+// import Disqus from 'disqus-react';
 import React, { useEffect, useState } from 'react';
-// import ReactMarkdown from 'react-markdown/with-html';
+import ReactMarkdown from 'react-markdown';
 import Layout from '../components/Layout';
+import blogData from '../data/blogData.json';
 
 function BlogDetails(props) {
-	const [content, setContent] = useState('');
-	const blogId = props.match.params.id;
-	const blogFile = props.match.params.title;
+  const [blog, setBlog] = useState({});
+  const slug = props.match.params.slug;
 
-	useEffect(() => {
-		axios.get(require(`../blog/${blogFile}.md`)).then((result) => {
-			setContent(result.data);
-		});
-	}, [content, blogFile]);
+  useEffect(() => {
+    const thisBlog = blogData.find((blogDatum) => blogDatum.slug === slug);
+    setBlog(thisBlog);
+  }, []);
 
-	const disqusShortname = 'chester-react'; // found in your Disqus.com dashboard
-	const disqusConfig = {
-		url: 'https://tf-react-chester.now.sh/', // Homepage link of this site.
-		identifier: blogId,
-		title: blogFile,
-	};
+  // const disqusShortname = 'chester-react'; // found in your Disqus.com dashboard
+  // const disqusConfig = {
+  //   url: 'https://www.ayweb.dev/', // Homepage link of this site.
+  //   identifier: blog.id,
+  //   title: blog.title,
+  // };
 
-	return (
-		<Layout>
-			<Helmet>
-				<title>Blog Details - Chester React Personal Portfolio Template</title>
-				<meta
-					name='description'
-					content='Chester React Personal Portfolio Template Blog Details Page'
-				/>
-			</Helmet>
-			<div className='mi-blog-details mi-section mi-padding-top mi-padding-bottom'>
-				<div className='container'>
-					{/* <ReactMarkdown source={content} escapeHtml={false}></ReactMarkdown> */}
-					<div className='mi-blog-details-comments mt-30'>
-						<Disqus.DiscussionEmbed
-							shortname={disqusShortname}
-							config={disqusConfig}
-						/>
-					</div>
-				</div>
-			</div>
-		</Layout>
-	);
+  return (
+    <Layout>
+      <Helmet>
+        <title>{blog?.title || 'Blog Details'}</title>
+        <meta
+          name="description"
+          content={
+            blog?.title || 'Alex Younger Personal Portfolio Blog Details Page'
+          }
+        />
+      </Helmet>
+      <div className="mi-blog-details mi-section mi-padding-top mi-padding-bottom">
+        <div className="container">
+          <ReactMarkdown>{blog?.markdown}</ReactMarkdown>
+          {/* <div className="mi-blog-details-comments mt-30">
+            <Disqus.DiscussionEmbed
+              shortname={disqusShortname}
+              config={disqusConfig}
+            />
+          </div> */}
+        </div>
+      </div>
+    </Layout>
+  );
 }
 
 export default BlogDetails;
