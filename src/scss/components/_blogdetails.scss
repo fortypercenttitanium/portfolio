@@ -2,15 +2,28 @@
  * Blog Details
  */
 
-.mi-blog-details{
-  img{
+.mi-blog-details {
+  img {
     margin-bottom: 15px;
   }
-  h3{
+  h3 {
     font-weight: 700;
   }
-  blockquote{
+  blockquote {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+  .blog-main-img {
+    padding: 16px;
+    display: block;
+    margin: 16px auto;
+  }
+  .blog-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 }

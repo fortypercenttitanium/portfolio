@@ -34,13 +34,25 @@ function BlogDetails(props) {
       </Helmet>
       <div className="mi-blog-details mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
-          <ReactMarkdown>{blog?.markdown}</ReactMarkdown>
-          {/* <div className="mi-blog-details-comments mt-30">
-            <Disqus.DiscussionEmbed
-              shortname={disqusShortname}
-              config={disqusConfig}
-            />
-          </div> */}
+          {blog ? (
+            <>
+              <h1 className="blog-title">{blog.title}</h1>
+              <img
+                className="blog-main-img"
+                src={`/images/blogs/${blog.mainImageUrl}`}
+                alt={blog.title}
+              />
+              <ReactMarkdown>{blog?.markdown}</ReactMarkdown>
+              {/* <div className="mi-blog-details-comments mt-30">
+                <Disqus.DiscussionEmbed
+                  shortname={disqusShortname}
+                  config={disqusConfig}
+                />
+              </div> */}
+            </>
+          ) : (
+            <h1>Blog not found!</h1>
+          )}
         </div>
       </div>
     </Layout>
