@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns/';
 
 function Blog(props) {
-  const { id, mainImageUrl, title, date, slug } = props.data;
+  const { mainImageUrl, title, date, slug } = props.data;
 
   const createYear = format(date, 'yyyy');
   const createMonth = format(date, 'MMMM');
