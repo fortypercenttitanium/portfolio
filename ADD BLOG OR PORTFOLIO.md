@@ -22,8 +22,12 @@
   "id": "Number (will be used to sort)",
   "title": "String",
   "subtitle": "String",
-  "imageUrl": "String (small img)",
-  "largeImageUrl": ["Strings", "Large", "Images"],
+  "imageUrl": "/images/portfolio/[image]",
+  "largeImageUrl": [
+    "/images/portfolio/[image]",
+    "/images/portfolio/[image]",
+    "/images/portfolio/[image]"
+  ],
   "liveUrl": "String",
   "gitHubUrl": "String"
 }
