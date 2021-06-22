@@ -40,16 +40,23 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "imagemin": "^8.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
     "nanoid": "^3.1.23",
     "prettier": "^2.3.0",
     "slugify": "^1.5.3"
+  },
+  "engines": {
+    "node": "16.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "seed": "node ./src/data/seedLocalDb.js"
+    "seed": "node ./src/data/seedLocalDb.mjs"
   },
   "browserslist": {
     "production": [
