@@ -22,7 +22,7 @@ function Header() {
       <div className="mi-header-inner">
         <div className="mi-header-image">
           <Link to="/">
-            <img src={brandImage} alt="brandimage" />
+            <img src={brandImage} alt="brand image" />
           </Link>
         </div>
 
