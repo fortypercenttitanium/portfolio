@@ -18,7 +18,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
-**/firebaseConfig.js
+*/data/blogs
+*/data/portfolio
 
 npm-debug.log*
 yarn-debug.log*
