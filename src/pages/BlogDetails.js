@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../components/Layout';
 import blogData from '../data/blogData.json';
+import { format } from 'date-fns';
 
 function BlogDetails(props) {
-  const [blog, setBlog] = useState({});
+  const [blog, setBlog] = useState();
   const slug = props.match.params.slug;
 
   useEffect(() => {
@@ -37,6 +38,18 @@ function BlogDetails(props) {
           {blog ? (
             <>
               <h1 className="blog-title">{blog.title}</h1>
+              <h2 className="blog-author">
+                written by {blog.author} on{' '}
+                {format(new Date(blog.date), 'MMMM do, yyyy')}
+              </h2>
+              {blog.lastEdited && (
+                <h3 className="blog-edited">
+                  <em>
+                    last edited{' '}
+                    {format(new Date(blog.lastEdited), 'MMMM do, yyyy')}
+                  </em>
+                </h3>
+              )}
               <img
                 className="blog-main-img"
                 src={`/images/blogs/${blog.mainImageUrl}`}

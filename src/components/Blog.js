@@ -6,9 +6,9 @@ import { format } from 'date-fns/';
 function Blog(props) {
   const { mainImageUrl, title, date, slug } = props.data;
 
-  const createYear = format(date, 'yyyy');
-  const createMonth = format(date, 'MMMM');
-  const createDay = format(date, 'do');
+  const createYear = format(new Date(date), 'yyyy');
+  const createMonth = format(new Date(date), 'MMMM');
+  const createDay = format(new Date(date), 'do');
   const getShortMonth = (month) => month.slice(0, 3);
 
   return (

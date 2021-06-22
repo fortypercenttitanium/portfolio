@@ -70,7 +70,7 @@ function seedBlogs() {
       const data = {
         title,
         author: 'Alex Younger',
-        date: new Date(),
+        date: new Date().toString(),
         slug: slugify(title, { lower: true }),
         id,
         markdown,
@@ -112,7 +112,7 @@ function seedBlogs() {
         .readFileSync(path.join(blog, `${data.title}.md`))
         .toString();
 
-      data.lastEdited = new Date();
+      data.lastEdited = new Date().toString();
 
       createDataFile(data);
     });
