@@ -8,44 +8,66 @@ import Layout from '../components/Layout';
 const phoneNumber = '856-471-7881';
 const emailAddress = 'alex@ayweb.dev';
 
+const initialFormData = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+};
+
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
+
 function Contact() {
-  const [address, setAddress] = useState([]);
-  const [formdata, setFormdata] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    if (!formdata.name) {
+    if (!formData.name) {
       setError(true);
       setMessage('Name is required');
     } else if (
       !/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        formdata.email,
+        formData.email,
       )
     ) {
       setError(true);
       setMessage('Valid email required');
-    } else if (!formdata.subject) {
+    } else if (!formData.subject) {
       setError(true);
       setMessage('Subject is required');
-    } else if (!formdata.message) {
+    } else if (!formData.message) {
       setError(true);
       setMessage('Message is required');
     } else {
-      setError(false);
-      setMessage('You message has been sent!!!');
+      const result = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': event.target.getAttribute('name'),
+          ...name,
+        }),
+      });
+
+      if (result.ok || process.env.NODE_ENV === 'development') {
+        setError(false);
+        setFormData(initialFormData);
+        return setMessage('You message has been sent!');
+      }
+
+      setError(true);
+      return setMessage('Form submission failed, please try again later.');
     }
   };
 
   const handleChange = (event) => {
-    setFormdata({
-      ...formdata,
+    setFormData({
+      ...formData,
       [event.currentTarget.name]: event.currentTarget.value,
     });
   };
@@ -88,7 +110,7 @@ function Contact() {
                       type="text"
                       name="name"
                       id="contact-form-name"
-                      value={formdata.name}
+                      value={formData.name}
                     />
                   </div>
                   <div className="mi-form-field">
@@ -100,7 +122,7 @@ function Contact() {
                       type="email"
                       name="email"
                       id="contact-form-email"
-                      value={formdata.email}
+                      value={formData.email}
                     />
                   </div>
                   <div className="mi-form-field">
@@ -110,7 +132,7 @@ function Contact() {
                       type="text"
                       name="subject"
                       id="contact-form-subject"
-                      value={formdata.subject}
+                      value={formData.subject}
                     />
                   </div>
                   <div className="mi-form-field">
@@ -121,7 +143,7 @@ function Contact() {
                       id="contact-form-message"
                       cols="30"
                       rows="6"
-                      value={formdata.message}
+                      value={formData.message}
                     />
                   </div>
                   <div className="mi-form-field">
