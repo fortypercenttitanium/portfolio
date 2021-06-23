@@ -13,6 +13,11 @@ function Blog(props) {
 
   return (
     <div className="mi-blog">
+      <div className="mi-blog-content">
+        <h5>
+          <Link to={`blog/${slug}`}>{title}</Link>
+        </h5>
+      </div>
       <div className="mi-blog-image">
         <Link to={`blog/${slug}`}>
           <ProgressiveImage
@@ -28,11 +33,6 @@ function Blog(props) {
             {getShortMonth(createMonth)}, {createYear}
           </span>
         </div>
-      </div>
-      <div className="mi-blog-content">
-        <h5>
-          <Link to={`blog/${slug}`}>{title}</Link>
-        </h5>
       </div>
     </div>
   );
