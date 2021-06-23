@@ -145,11 +145,11 @@
 }
 
 .light-mode {
-  position: fixed;
-  z-index: 999;
+  position: absolute;
+  z-index: 2;
   height: 40px;
   left: auto;
-  right: 20px;
+  right: 10px;
   top: 24px;
   padding: 0 10px;
   display: flex;

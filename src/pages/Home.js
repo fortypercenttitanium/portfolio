@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Particles from 'react-particles-js';
 import Layout from '../components/Layout';
 import Socialicons from '../components/Socialicons';
 
-function Home({ lightMode }) {
+function Home() {
   const paramConfig = {
     particles: {
       number: {
@@ -14,44 +14,10 @@ function Home({ lightMode }) {
         },
       },
       color: {
-        value: '#ffffff',
+        value: '#888888',
       },
       opacity: {
-        value: 0.1,
-      },
-      size: {
-        value: 5,
-        random: true,
-        anim: {
-          speed: 4,
-          size_min: 0.3,
-        },
-      },
-      line_linked: {
-        enable: false,
-      },
-      move: {
-        random: true,
-        speed: 1,
-        direction: 'top',
-        out_mode: 'out',
-      },
-    },
-  };
-
-  const paramConfigLight = {
-    particles: {
-      number: {
-        value: 160,
-        density: {
-          enable: false,
-        },
-      },
-      color: {
-        value: '#000000',
-      },
-      opacity: {
-        value: 0.1,
+        value: 0.3,
       },
       size: {
         value: 5,
@@ -83,10 +49,7 @@ function Home({ lightMode }) {
         />
       </Helmet>
       <div className="mi-home-area mi-padding-section">
-        <Particles
-          className="mi-home-particle"
-          params={lightMode ? paramConfigLight : paramConfig}
-        />
+        <Particles className="mi-home-particle" params={paramConfig} />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10 col-12">
