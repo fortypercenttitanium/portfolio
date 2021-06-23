@@ -45,11 +45,12 @@ function Contact() {
       setError(true);
       setMessage('Message is required');
     } else {
-      const result = await fetch('/contact', {
+      const result = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
           'form-name': 'contact',
+          ...formData,
         }),
       });
 
