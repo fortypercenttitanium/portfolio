@@ -49,8 +49,7 @@ function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': event.target.getAttribute('name'),
-          ...name,
+          'form-name': 'contact',
         }),
       });
 
@@ -100,7 +99,6 @@ function Contact() {
                 <h4>Get In Touch</h4>
                 <form
                   data-netlify="true"
-                  name="contact"
                   method="POST"
                   className="mi-form mi-contact-form"
                   onSubmit={submitHandler}
