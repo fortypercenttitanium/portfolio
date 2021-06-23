@@ -23,7 +23,7 @@ function Socialicons(props) {
         <a
           rel="noopener noreferrer"
           target="_blank"
-          href="www.linkedin.com/in/ayWebDev"
+          href="https://www.linkedin.com/in/ayWebDev"
         >
           <LineIcon name="linkedin" />
         </a>
