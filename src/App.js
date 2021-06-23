@@ -9,10 +9,12 @@ import Home from './pages/Home';
 import Notfound from './pages/Notfound';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Switch>
         <Route path="/" exact>
           <Home />
