@@ -99,13 +99,18 @@ function Contact() {
               <div className="mi-contact-formwrapper">
                 <h4>Get In Touch</h4>
                 <form
-                  netlify
+                  data-netlify="true"
                   name="contact"
                   method="POST"
                   className="mi-form mi-contact-form"
                   onSubmit={submitHandler}
                 >
-                  <input hidden name="contact" value="contact" />
+                  <input
+                    hidden
+                    name="contact"
+                    value="contact"
+                    onChange={() => {}}
+                  />
                   <div className="mi-form-field">
                     <label htmlFor="contact-form-name">Enter your name*</label>
                     <input
