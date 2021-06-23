@@ -105,7 +105,7 @@ function Contact() {
                 >
                   <input
                     hidden
-                    name="contact"
+                    name="form-name"
                     value="contact"
                     onChange={() => {}}
                   />
