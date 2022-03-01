@@ -12,7 +12,9 @@ function Blog() {
   const [postsPerPage] = useState(6);
 
   useEffect(() => {
-    blogData.sort((a, b) => a.date - b.date);
+    blogData.sort((a, b) =>
+      new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1,
+    );
     setPosts(blogData);
   }, []);
 
