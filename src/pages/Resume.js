@@ -3,6 +3,7 @@ import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode } from 'react-icons/fa';
 import { IoLogoElectron, IoLogoFirebase } from 'react-icons/io5';
 import { DiMongodb } from 'react-icons/di';
+import { SiCsharp, SiGraphql, SiDotnet } from 'react-icons/si';
 import Sectiontitle from '../components/Sectiontitle';
 import Smalltitle from '../components/Smalltitle';
 import Layout from '../components/Layout';
@@ -26,6 +27,18 @@ const skills = [
     icon: FaReact,
   },
   {
+    title: 'C#',
+    icon: SiCsharp,
+  },
+  {
+    title: 'Dotnet',
+    icon: SiDotnet,
+  },
+  {
+    title: 'GraphQL',
+    icon: SiGraphql,
+  },
+  {
     title: 'NodeJS',
     icon: FaNode,
   },
@@ -45,7 +58,20 @@ const skills = [
 
 const workingExperience = [
   {
-    id: 1,
+    id: 4,
+    year: '2022 - Present',
+    position: 'Software Developer',
+    company: 'Morgan Lewis',
+    details: [
+      'Build modern business applications to streamline internal processes',
+      'Collaborate with team members to design and implement new features',
+      'Create modern APIs to serve data to business applications',
+      'Write tests for all components to ensure sufficient code coverage',
+      'Maintain and improve existing codebase',
+    ],
+  },
+  {
+    id: 2,
     year: '2021 - Present',
     position: 'Maintainer',
     company: 'The Odin Project',
@@ -59,7 +85,7 @@ const workingExperience = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     year: '2020 - Present',
     position: 'Web Developer',
     company: 'Freelance',
@@ -70,8 +96,8 @@ const workingExperience = [
     ],
   },
   {
-    id: 3,
-    year: '2020 - Present',
+    id: 4,
+    year: '2020 - 2022',
     position: 'Developer/Maintainer',
     company: 'Cards of Carousal',
     companyURL: 'https://www.cardsofcarousal.com',

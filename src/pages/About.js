@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import React from 'react';
-import ProgressiveImage from 'react-progressive-image';
+import ProgressiveImage from 'react-progressive-graceful-image';
 import Layout from '../components/Layout';
 import Sectiontitle from '../components/Sectiontitle';
 import Service from '../components/Service';
@@ -13,19 +13,18 @@ function About() {
       title: 'Web Development',
       icon: 'code',
       details:
-        'Is your current website up to modern standards? Is it accessible to everyone and responsive on all devices? Does it meet all of your business or personal needs? If not, I can help!',
+        'Web sites and web applications are my bread and butter. I can build you a site that is fast, secure, and easy to use.',
     },
     {
       title: 'Mobile/Desktop Apps',
       icon: 'laptop-phone',
       details:
-        'I make fast, powerful, and beautiful native applications for devices and computers that interface with other hardware, or for when you just need a bit more muscle under the hood.',
+        'I build mobile and desktop applications that help get things done.',
     },
     {
       title: 'Small Business Solutions',
       icon: 'graph',
-      details:
-        'Got a tech problem, but have no idea how to solve it? Let me help out. I can build a solution that fits your needs for a fraction of the price the big software companies would charge.',
+      details: 'Got a tech problem? I can help you solve it.',
     },
   ];
 
@@ -72,13 +71,7 @@ function About() {
                     <b>Language</b> English
                   </li>
                   <li>
-                    <b>Ice cream</b> B&J Half-Baked
-                  </li>
-                  <li>
-                    <b>Hobbies</b> Camping, Baseball
-                  </li>
-                  <li>
-                    <b>Cell</b> <a href="tel:8564717881">856-471-7881</a>
+                    <b>Hobbies</b> Hiking, Camping, Breweries, Baseball
                   </li>
                   <li>
                     <b>Email</b>{' '}

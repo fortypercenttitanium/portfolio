@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressiveImage from 'react-progressive-image';
+import ProgressiveImage from 'react-progressive-graceful-image';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns/';
 

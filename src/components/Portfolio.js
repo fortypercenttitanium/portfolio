@@ -1,7 +1,7 @@
 import FsLightbox from 'fslightbox-react';
 import React, { useState } from 'react';
 import * as Icon from 'react-feather';
-import ProgressiveImage from 'react-progressive-image';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
 function Portfolio(props) {
   const [toggler, setToggler] = useState(false);

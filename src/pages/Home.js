@@ -1,43 +1,83 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import Particles from 'react-particles-js';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 import Layout from '../components/Layout';
 import Socialicons from '../components/Socialicons';
 
-function Home() {
-  const paramConfig = {
-    particles: {
-      number: {
-        value: 160,
-        density: {
-          enable: false,
-        },
+const options = {
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onClick: {
+        enable: true,
+        mode: 'push',
       },
-      color: {
-        value: '#888888',
+      onHover: {
+        enable: true,
+        mode: 'repulse',
       },
-      opacity: {
-        value: 0.3,
+      resize: true,
+    },
+    modes: {
+      push: {
+        quantity: 4,
       },
-      size: {
-        value: 5,
-        random: true,
-        anim: {
-          speed: 4,
-          size_min: 0.3,
-        },
-      },
-      line_linked: {
-        enable: false,
-      },
-      move: {
-        random: true,
-        speed: 1,
-        direction: 'top',
-        out_mode: 'out',
+      repulse: {
+        distance: 200,
+        duration: 0.4,
       },
     },
-  };
+  },
+  particles: {
+    color: {
+      value: '#888888',
+    },
+    collisions: {
+      enable: true,
+    },
+    move: {
+      directions: 'none',
+      enable: true,
+      outModes: {
+        default: 'bounce',
+      },
+      random: false,
+      speed: 3,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.3,
+    },
+    shape: {
+      type: 'circle',
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
+  },
+  detectRetina: true,
+};
+
+function Home() {
+  const particlesInit = React.useCallback(async (engine) => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = React.useCallback(async (container) => {
+    console.log(container);
+  }, []);
 
   return (
     <Layout>
@@ -49,7 +89,13 @@ function Home() {
         />
       </Helmet>
       <div className="mi-home-area mi-padding-section">
-        <Particles className="mi-home-particle" params={paramConfig} />
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          loaded={particlesLoaded}
+          className="mi-home-particle"
+          options={options}
+        />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10 col-12">
@@ -58,9 +104,9 @@ function Home() {
                   Hey! I&apos;m <span className="color-theme">Alex</span>
                 </h1>
                 <p>
-                  Fullstack web developer
+                  Software developer
                   <br />
-                  Public school teacher
+                  Gamer
                   <br />
                   Philadelphia sports enthusiast
                 </p>
