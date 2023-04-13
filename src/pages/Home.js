@@ -106,7 +106,7 @@ function Home() {
                 <p>
                   Software developer
                   <br />
-                  Gamer
+                  Musician
                   <br />
                   Philadelphia sports enthusiast
                 </p>
