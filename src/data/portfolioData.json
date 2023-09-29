@@ -1,1 +1,71 @@
-[{"id":3,"title":"Battleship game","subtitle":"A web version of the classic Hasbro game. Features smart AI.","imageUrl":"/images/portfolio/battleship_img.png","largeImageUrl":["/images/portfolio/battleship_img_lg.png","/images/portfolio/battleship_img_lg2.png"],"liveUrl":"https://benders-battleship.netlify.app/","gitHubUrl":"https://github.com/fortypercenttitanium/battleship"},{"id":1,"title":"BetBro","subtitle":"A website that compares team statistics for each NFL matchup week-by-week.","imageUrl":"/images/portfolio/betbro_img.png","largeImageUrl":["/images/portfolio/betbro_img_lg.png","/images/portfolio/betbro_img_lg2.png"],"liveUrl":"https://betbro.io","gitHubUrl":"https://github.com/fortypercenttitanium/betbro"},{"id":5,"title":"Calculator App","subtitle":"One of my first projects. I used this to practice javascript functions, good coding practices, and simple algorithms.","imageUrl":"/images/portfolio/calculator.png","largeImageUrl":["/images/portfolio/calculator_lg.png"],"liveUrl":"https://fortypercenttitanium.github.io/calculator/","gitHubUrl":"https://github.com/fortypercenttitanium/calculator"},{"id":6,"title":"Etch-A-Sketch App","subtitle":"One of my first projects. I used this to practice DOM manipulation (changing how graphics and text are shown in the browser) and using event listeners.","imageUrl":"/images/portfolio/etch_a_sketch.png","largeImageUrl":["/images/portfolio/etch_a_sketch_lg.png","/images/portfolio/etch_a_sketch_lg2.png"],"liveUrl":"https://fortypercenttitanium.github.io/etch-a-sketch/","gitHubUrl":"https://github.com/fortypercenttitanium/etch-a-sketch"},{"id":2,"title":"Music Studio Business Site","subtitle":"Website for a small music studio. This site features detailed information about the services offered, pricing, and a contact form.","imageUrl":"/images/portfolio/music_studio.png","largeImageUrl":["/images/portfolio/music_studio_lg.png","/images/portfolio/music_studio_lg2.png","/images/portfolio/music_studio_lg3.png"],"liveUrl":"https://www.musicwithlori.com","gitHubUrl":"https://github.com/fortypercenttitanium/Lori_studio"},{"id":7,"title":"Tic-Tac-Toe App","subtitle":"One of my first projects. I used this to practice simple algorithms.","imageUrl":"/images/portfolio/tic_tac_toe.png","largeImageUrl":["/images/portfolio/tic_tac_toe_lg.png","/images/portfolio/tic_tac_toe_lg2.png"],"liveUrl":"https://fortypercenttitanium.github.io/tictactoe/","gitHubUrl":"https://github.com/fortypercenttitanium/tictactoe"},{"id":4,"title":"To Do List App","subtitle":"I made this to practice some new things I was learning at the time such as authentication and ReactJS.","imageUrl":"/images/portfolio/todo_list.png","largeImageUrl":["/images/portfolio/todo_list_lg.png","/images/portfolio/todo_list_lg2.png"],"liveUrl":"https://fortypercenttitanium.github.io/todoreact/","gitHubUrl":"https://github.com/fortypercenttitanium/todoreact"}]
+[
+  {
+    "id": 3,
+    "title": "Battleship game",
+    "subtitle": "A web version of the classic Hasbro game. Features smart AI.",
+    "imageUrl": "/images/portfolio/battleship_img.png",
+    "largeImageUrl": [
+      "/images/portfolio/battleship_img_lg.png",
+      "/images/portfolio/battleship_img_lg2.png"
+    ],
+    "liveUrl": "https://benders-battleship.netlify.app/",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/battleship"
+  },
+  {
+    "id": 1,
+    "title": "BetBro",
+    "subtitle": "A website that compares team statistics for each NFL matchup week-by-week.",
+    "imageUrl": "/images/portfolio/betbro_img.png",
+    "largeImageUrl": [
+      "/images/portfolio/betbro_img_lg.png",
+      "/images/portfolio/betbro_img_lg2.png"
+    ],
+    "liveUrl": "https://betbro.io",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/betbro"
+  },
+  {
+    "id": 5,
+    "title": "Calculator App",
+    "subtitle": "One of my first projects. I used this to practice javascript functions, good coding practices, and simple algorithms.",
+    "imageUrl": "/images/portfolio/calculator.png",
+    "largeImageUrl": ["/images/portfolio/calculator_lg.png"],
+    "liveUrl": "https://fortypercenttitanium.github.io/calculator/",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/calculator"
+  },
+  {
+    "id": 6,
+    "title": "Etch-A-Sketch App",
+    "subtitle": "One of my first projects. I used this to practice DOM manipulation (changing how graphics and text are shown in the browser) and using event listeners.",
+    "imageUrl": "/images/portfolio/etch_a_sketch.png",
+    "largeImageUrl": [
+      "/images/portfolio/etch_a_sketch_lg.png",
+      "/images/portfolio/etch_a_sketch_lg2.png"
+    ],
+    "liveUrl": "https://fortypercenttitanium.github.io/etch-a-sketch/",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/etch-a-sketch"
+  },
+  {
+    "id": 7,
+    "title": "Tic-Tac-Toe App",
+    "subtitle": "One of my first projects. I used this to practice simple algorithms.",
+    "imageUrl": "/images/portfolio/tic_tac_toe.png",
+    "largeImageUrl": [
+      "/images/portfolio/tic_tac_toe_lg.png",
+      "/images/portfolio/tic_tac_toe_lg2.png"
+    ],
+    "liveUrl": "https://fortypercenttitanium.github.io/tictactoe/",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/tictactoe"
+  },
+  {
+    "id": 4,
+    "title": "To Do List App",
+    "subtitle": "I made this to practice some new things I was learning at the time such as authentication and ReactJS.",
+    "imageUrl": "/images/portfolio/todo_list.png",
+    "largeImageUrl": [
+      "/images/portfolio/todo_list_lg.png",
+      "/images/portfolio/todo_list_lg2.png"
+    ],
+    "liveUrl": "https://fortypercenttitanium.github.io/todoreact/",
+    "gitHubUrl": "https://github.com/fortypercenttitanium/todoreact"
+  }
+]
