@@ -5,7 +5,6 @@ import Socialicons from '../components/Socialicons';
 import Sectiontitle from '../components/Sectiontitle';
 import Layout from '../components/Layout';
 
-const phoneNumber = '856-471-7881';
 const emailAddress = 'alex@ayweb.dev';
 
 const initialFormData = {
@@ -164,7 +163,7 @@ function Contact() {
             </div>
             <div className="col-lg-6">
               <div className="mi-contact-info">
-                <div className="mi-contact-infoblock">
+                {/* <div className="mi-contact-infoblock">
                   <span className="mi-contact-infoblock-icon">
                     <Icon.Phone />
                   </span>
@@ -174,7 +173,7 @@ function Contact() {
                       <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
                     </p>
                   </div>
-                </div>
+                </div> */}
                 <div className="mi-contact-infoblock">
                   <span className="mi-contact-infoblock-icon">
                     <Icon.Mail />
